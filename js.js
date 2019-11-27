@@ -1,37 +1,59 @@
 // svarbu tvarkyngai viska sulygiuoti, kad butu lengviau suprantamas kodas
-function countWords() {
+const paragraph = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which do look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+const anotherParagraph = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum cursus turpis nec placerat. Nulla congue nisi eget ipsum aliquet vehicula. Maecenas dui libero, lobortis et lorem eget, aliquam viverra augue. Suspendisse quis fermentum augue, quis hendrerit ante. Nulla facilisi. Integer pretium, mi eget sagittis auctor, sapien arcu dapibus mi."
+
+function countWords(text) {
   // var - retai kur naudojamas. Nuo ES6 atsirado let ir const. Siulau apie tai pasiskaityti.
-  const text = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which do look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+  
   // var text1 = text.replace(/[.,\/;:]/g,"");
   // var text2=text1.replace(/\d+/g, '')
   // var text3 = text2.replace(/\s{2,}/g," ");
 
   // var  array = formatedText.split(" ");
   // Vietoj keliu constantu, gali padaryti viska su viena.
-  const words = text.replace(/[.,\/;:]/g,"")
+  const text1 = text.toLowerCase();
+  const words = text1.replace(/[.,\/;:]/g,"")
                     .replace(/\d+/g, '')
                     .replace(/\s{2,}/g," ")
                     .split(" ")
+            
+                   
 
   // Turetu buti const
-  var wordCounts = {};
+  const wordCounts = {};
 
-  for (i=0; i<words.length; i++){
-    var word = words[i];
+  // for (i=0; i<words.length; i++){
+  //   var word = words[i];
+  //   if(!wordCounts[word]){
+  //     wordCounts[word]=1;
+  //   }
+  //   else{
+  //     wordCounts[word]++;
+  //   }
+  // }
+
+  words.forEach((word) =>{
     if(!wordCounts[word]){
       wordCounts[word]=1;
     }
     else{
       wordCounts[word]++;
     }
-  }
+  })
 
   // sito nereikejo. su `var wordCounts = {};` jau sukuri objekta.
   // var wordCounts = Object.create(wordCounts);
-  console.log(wordCounts);
-}
 
-countWords();
+
+  console.log(wordCounts);
+ 
+  
+}
+countWords(paragraph);
+
+
+
+
 
 // Uzduotys:
 
