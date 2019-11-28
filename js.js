@@ -3,23 +3,12 @@ const paragraph = "There are many variations of passages of Lorem Ipsum availabl
 const anotherParagraph = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum cursus turpis nec placerat. Nulla congue nisi eget ipsum aliquet vehicula. Maecenas dui libero, lobortis et lorem eget, aliquam viverra augue. Suspendisse quis fermentum augue, quis hendrerit ante. Nulla facilisi. Integer pretium, mi eget sagittis auctor, sapien arcu dapibus mi."
 
 function countWords(text) {
-  // var - retai kur naudojamas. Nuo ES6 atsirado let ir const. Siulau apie tai pasiskaityti.
-  
-  // var text1 = text.replace(/[.,\/;:]/g,"");
-  // var text2=text1.replace(/\d+/g, '')
-  // var text3 = text2.replace(/\s{2,}/g," ");
-
-  // var  array = formatedText.split(" ");
-  // Vietoj keliu constantu, gali padaryti viska su viena.
   const text1 = text.toLowerCase();
   const words = text1.replace(/[.,\/;:]/g,"")
                     .replace(/\d+/g, '')
                     .replace(/\s{2,}/g," ")
                     .split(" ")
             
-                   
-
-  // Turetu buti const
   const wordCounts = {};
 
   // for (i=0; i<words.length; i++){
@@ -31,7 +20,7 @@ function countWords(text) {
   //     wordCounts[word]++;
   //   }
   // }
-
+ 
   words.forEach((word) =>{
     if(!wordCounts[word]){
       wordCounts[word]=1;
@@ -40,18 +29,10 @@ function countWords(text) {
       wordCounts[word]++;
     }
   })
-
-  // sito nereikejo. su `var wordCounts = {};` jau sukuri objekta.
-  // var wordCounts = Object.create(wordCounts);
-
-
-  console.log(wordCounts);
- 
-  
+  return wordCounts;
 }
-countWords(paragraph);
-
-
+const counts = countWords(paragraph);
+console.log(counts);
 
 
 
